@@ -1624,5 +1624,1071 @@ class SystemValues(object):
                         }
                     }
                 }
+            },
+
+            'adcs': { # refer to the adcs service
+                'port': 18,
+                'subservice': {
+                    'ADCS_RESET': {
+                        'subport': 0,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_RESET_LOG_POINTER': {
+                        'subport': 1,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_ADVANCE_LOG_POINTER': {
+                        'subport': 2,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_RESET_BOOT_REGISTERS': {
+                        'subport': 3,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_FORMAT_SD_CARD': {
+                        'subport': 4,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_ERASE_FILE': {
+                        'subport': 5,
+                        'inoutInfo': {
+                            'args': ['>u1', '>u1', '>u1'], #file_type, file_counter, erase_all
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_LOAD_FILE_DOWNLOAD_BLOCK': {
+                        'subport': 6,
+                        'inoutInfo': {
+                            'args': ['>u1', '>u1', '>u4', '>u2'], #file_type, file_counter, offset, block_length
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_ADVANCE_FILE_LIST_READ_POINTER': {
+                        'subport': 7,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_INITIATE_FILE_UPLOAD': {
+                        'subport': 8,
+                        'inoutInfo': {
+                            'args': ['>u1', '>u1'], # file_dest, block_size
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_FILE_UPLOAD_PACKET': {
+                        'subport': 9,
+                        'inoutInfo': {
+                            'args': ['>u2', '>u1'], # packet_number, file_bytes
+                            'returns': {
+                                'err': '>b',
+                                'file_bytes': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_FINALIZE_UPLOAD_BLOCK': {
+                        'subport': 10,
+                        'inoutInfo': {
+                            'args': ['>u2', '>u4', 'u2'], # file_dest, offset, block_length
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_RESET_UPLOAD_BLOCK': {
+                        'subport': 11,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_RESET_FILE_LIST_READ_POINTER': {
+                        'subport': 12,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_INITIATE_DOWNLOAD_BURST': {
+                        'subport': 13,
+                        'inoutInfo': {
+                            'args': ['>u1', '>?'], # msg_legnth, ignore_hole_map
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_GET_NODE_IDENTIFICATION': {
+                        'subport': 14,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Node_Type': '>u1',
+                                'Interface_Ver': '>u1',
+                                'Major_Firm_Ver': '>u1',
+                                'Minor_Firm_Ver': '>u1',
+                                'Runtime_S': '>u2',
+                                'Runtime_Ms': '>u2'
+                            }
+                        }
+                    },
+                    'ADCS_GET_BOOT_PROGRAM_STAT': {
+                        'subport': 15,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Mcu_Reset_Cause': '>u1',
+                                'Boot_Cause': '>u1',
+                                'Boot_Count': '>u2',
+                                'Boot_Idx': '>u1'
+                            }
+                        }
+                    },
+                    'ADCS_GET_BOOT_INDEX': {
+                        'subport': 16,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Program_Idx': '>u1',
+                                'Boot_Stat': '>u1',
+                            }
+                        }
+                    },
+                    'ADCS_GET_LAST_LOGGED_EVENT': {
+                        'subport': 17,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Time': '>u4',
+                                'Event_Id': '>u1',
+                                'Event_Param': '>u1'
+                            }
+                        }
+                    },
+                    'ADCS_GET_SD_FORMAT_PROCESS': {
+                        'subport': 18,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'FormT_Busy': '>?',
+                                'Erase_All_Busy': '>?',
+                            }
+                        }
+                    },
+                    'ADCS_GET_TC_ACK': {
+                        'subport': 19,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Last_Tc_Id': '>u1',
+                                'Tc_Processed': '>?',
+                                'Tc_Err_Stat': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_GET_FILE_DOWNLOAD_BUFFER': {
+                        'subport': 20,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Packet_Count': '>u2',
+                                'File': '>u4', #TODO: array
+                            }
+                        }
+                    },
+                    'ADCS_GET_FILE_DOWNLOAD_BLOCK_STAT': {
+                        'subport': 21,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Ready': '>?',
+                                'Param_Err': '?',
+                                'Crc16_Checksum': '>u2',
+                                'Length': '>u2'
+                            }
+                        }
+                    },
+                    'ADCS_GET_FILE_INFO': {
+                        'subport': 22,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Type': '>u1',
+                                'Updating': '?',
+                                'Size': '>u4',
+                                'Time': '>u4',
+                                'Crc16_Checksum': '>u2'
+                            }
+                        }
+                    },
+                    'ADCS_GET_INIT_UPLOAD_STAT': {
+                        'subport': 23,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Busy': '>?',
+                            }
+                        }
+                    },
+                    'ADCS_GET_FINALIZE_UPLOAD_STAT': {
+                        'subport': 24,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Busy': '>?',
+                                'Error': '>?'
+                            }
+                        }
+                    },
+                    'ADCS_GET_UPLOAD_CRC16_CHECKSUM': {
+                        'subport': 25,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Checksum': '>u2'
+                            }
+                        }
+                    },
+                    'ADCS_GET_SRAM_LATCHUP_COUNT': {
+                        'subport': 26,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Sram1': '>u2',
+                                'Sram2': '>u2'
+                            }
+                        }
+                    },
+                    'ADCS_GET_EDAC_ERR_COUNT': {
+                        'subport': 27,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Single_Sram': '>u2',
+                                'Double_Sram': '>u2',
+                                'Multi_Sram': '>u2'
+                            }
+                        }
+                    },
+                    'ADCS_GET_COMMS_STAT': {
+                        'subport': 28,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Comm_Status': '>u2',
+                            }
+                        }
+                    },
+                    'ADCS_SET_CACHE_EN_STATE': {
+                        'subport': 29,
+                        'inoutInfo': {
+                            'args': ['>?'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_SRAM_SCRUB_SIZE': {
+                        'subport': 30,
+                        'inoutInfo': {
+                            'args': ['>u2'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_UNIXTIME_SAVE_CONFIG': {
+                        'subport': 31,
+                        'inoutInfo': {
+                            'args': ['>u1', '>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_HOLE_MAP': {
+                        'subport': 32,
+                        'inoutInfo': {
+                            'args': ['>u1', '>u1'],
+                            'returns': {
+                                'err': '>b',
+                                'Hole_Map': '>u1'
+                            }
+                        }
+                    },
+                    'ADCS_SET_UNIX_T': {
+                        'subport': 33,
+                        'inoutInfo': {
+                            'args': ['>u4', '>u2'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_GET_CACHE_EN_STATE': {
+                        'subport': 34,
+                        'inoutInfo': {
+                            'args': ['>?'],
+                            'returns': {
+                                'err': '>b',
+                                'En_State': '>?'
+                            }
+                        }
+                    },
+                    'ADCS_GET_SRAM_SCRUB_SIZE': {
+                        'subport': 35,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Size': '>u2'
+                            }
+                        }
+                    },
+                    'ADCS_GET_UNIXTIME_SAVE_CONFIG': {
+                        'subport': 36,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'When': '>u1',
+                                'Period': '>u1'
+                            }
+                        }
+                    },
+                    'ADCS_GET_HOLE_MAP': {
+                        'subport': 37,
+                        'inoutInfo': {
+                            'args': ['>u1'], #num
+                            'returns': {
+                                'err': '>b',
+                                'Hole_Map': '>u1',
+                            }
+                        }
+                    },
+                    'ADCS_GET_UNIX_T': {
+                        'subport': 38,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Unix_t': '>u4',
+                                'Count_Ms': '>u2'
+                            }
+                        }
+                    },
+                    'ADCS_CLEAR_ERR_FLAGS': {
+                        'subport': 39,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_BOOT_INDEX': {
+                        'subport': 40,
+                        'inoutInfo': {
+                            'args': ['>u1'], #index
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_RUN_SELECTED_PROGRAM': {
+                        'subport': 41,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_READ_PROGRAM_INFO': {
+                        'subport': 42,
+                        'inoutInfo': {
+                            'args': ['>u1'], #index
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_COPY_PROGRAM_INTERNAL_FLASH': {
+                        'subport': 43,
+                        'inoutInfo': {
+                            'args': ['>u1', '>u1'], #index, overwrite_flag
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_GET_BOOTLOADER_STATE': {
+                        'subport': 44,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Uptime': '>u2',
+                                'Flags_arr': '>u1'
+                            }
+                        }
+                    },
+                    'ADCS_GET_PROGRAM_INFO': {
+                        'subport': 45,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Index': '>u1',
+                                'Busy': '>?',
+                                'File_Size': '>u4',
+                                'Crc16_Checksum': '>u2'
+                            }
+                        }
+                    },
+                    'ADCS_COPY_INTERNAL_FLASH_PROGRESS': {
+                        'subport': 46,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Error': '>?',
+                                'Busy': '>?',
+                            }
+                        }
+                    },
+                    'ADCS_DEPLOY_MAGNETOMETER_BOOM': {
+                        'subport': 47,
+                        'inoutInfo': {
+                            'args': ['>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_ENABLED_STATE': {
+                        'subport': 48,
+                        'inoutInfo': {
+                            'args': ['>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_CLEAR_LATCHED_ERRS': {
+                        'subport': 49,
+                        'inoutInfo': {
+                            'args': ['>?', '>?'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_ATTITUDE_CTR_MODE': {
+                        'subport': 50,
+                        'inoutInfo': {
+                            'args': ['>u1', '>u2'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_ATTITUDE_ESTIMATE_MODE': {
+                        'subport': 51,
+                        'inoutInfo': {
+                            'args': ['>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_TRIGGER_ADCS_LOOP': {
+                        'subport': 52,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_TRIGGER_ADCS_LOOP_SIM': {
+                        'subport': 53,
+                        'inoutInfo': {
+                            'args': None, #TODO: sim_sensor_data type ?
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_ASGP4_RUNE_MODE': {
+                        'subport': 54,
+                        'inoutInfo': {
+                            'args': ['>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_TRIGGER_ASGP4': {
+                        'subport': 55,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_MTM_OP_MODE': {
+                        'subport': 56,
+                        'inoutInfo': {
+                            'args': ['>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_CNV2JPG': {
+                        'subport': 57,
+                        'inoutInfo': {
+                            'args': ['>u1', '>u1', '>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SAVE_IMG': {
+                        'subport': 58,
+                        'inoutInfo': {
+                            'args': ['>u1', '>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SAVE_CONFIG': {
+                        'subport': 61,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SAVE_ORBIT_PARAMS': {
+                        'subport': 62,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_GET_JPG_CNV_PROGESS': {
+                        'subport': 64,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Percentage': '>u1',
+                                'Result': '>u1',
+                                'File_Counter': '>u1'
+                            }
+                        }
+                    },
+                    'ADCS_GET_CUBEACP_STATE': {
+                        'subport': 65,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Flags_Arr': '>u1'
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_SAT_POS_LLH': {
+                        'subport': 66,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # xyz type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_EXECUTION_TIMES': {
+                        'subport': 67,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # ADCS_execution_times type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_ACP_LOOP_STAT': {
+                        'subport': 68,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # ADCS_ACP_loop_stat type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_IMG_SAVE_PROGRESS': {
+                        'subport': 69,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # ADCS_img_save_progress type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_MEASUREMENTS': {
+                        'subport': 70,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # adcs_measures type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_ACTUATOR': {
+                        'subport': 71,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # adcs_actuator type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_ESTIMATION': {
+                        'subport': 72,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # adcs_estimate type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_ASGP4': {
+                        'subport': 73,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # adcs_asgp4 type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_RAW_SENSOR': {
+                        'subport': 74,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # adcs_raw_sensor type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_RAW_GPS': {
+                        'subport': 75,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # adcs_raw_gps type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_STAR_TRACKER': {
+                        'subport': 76,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # adcs_star_track type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_MTM2_MEASUREMENTS': {
+                        'subport': 77,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # xyz16 type
+                            }
+                        }
+                    },
+                    #TODO: Finish the return values
+                    'ADCS_GET_POWER_TEMP': {
+                        'subport': 78,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                # adcs_pwr_temp type
+                            }
+                        }
+                    },
+                    'ADCS_SET_POWER_CONTROL': {
+                        'subport': 79,
+                        'inoutInfo': {
+                            'args': ['>u1'],
+                            'returns': {
+                                'err': '>b',
+                                'Control': '>u1'
+                            }
+                        }
+                    },
+                    'ADCS_GET_POWER_CONTROL': {
+                        'subport': 80,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Control': '>u1'
+                            }
+                        }
+                    },
+                    'ADCS_SET_ATTITUDE_ANGLE': {
+                        'subport': 81,
+                        'inoutInfo': {
+                            'args': ['>f1', '>f1', '>f1' ], # xyz type
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_GET_ATTITUDE_ANGLE': {
+                        'subport': 82,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'X': '>f1',
+                                'Y': '>f1',
+                                'Z': '>f1'
+                            }
+                        }
+                    },
+                    'ADCS_SET_TRACK_CONTROLLER': {
+                        'subport': 83,
+                        'inoutInfo': {
+                            'args': ['>f1', '>f1', '>f1' ], # xyz type
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_GET_TRACK_CONTROLLER': {
+                        'subport': 84,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'X': '>f1',
+                                'Y': '>f1',
+                                'Z': '>f1'
+                            }
+                        }
+                    },
+                    'ADCS_SET_LOG_CONFIG': {
+                        'subport': 85,
+                        'inoutInfo': {
+                            'args': ['>O', '>u2'], # array type?, period
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_GET_LOG_CONFIG': {
+                        'subport': 86,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                #Array type? #TODO
+                                'Period': '>u2',
+                                'Dest': '>u1',
+                                'Log': '>u1'
+                            }
+                        }
+                    },
+                    'ADCS_SET_INERTIAL_REF': {
+                        'subport': 87,
+                        'inoutInfo': {
+                            'args': ['>f1', '>f1', '>f1'],
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_GET_INERTIAL_REF': {
+                        'subport': 88,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'X': '>f1',
+                                'Y': '>f1',
+                                'Z': '>f1'
+                            }
+                        }
+                    },
+                    'ADCS_SET_SGP4_ORBIT_PARAMS': {
+                        'subport': 89,
+                        'inoutInfo': {
+                            'args': ['>f2', '>f2', '>f2', '>f2', '>f2', '>f2', '>f2', '>f2'],
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_GET_SGP4_ORBIT_PARAMS': {
+                        'subport': 90,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'Inclination': '>f2',
+                                'ECC': '>f2',
+                                'RAAN': '>f2',
+                                'AOP': '>f2',
+                                'Bstar': '>f2',
+                                'MM': '>f2',
+                                'MA': '>f2',
+                                'Epoch': '>f2'
+                            }
+                        }
+                    },
+                    'ADCS_SET_SYSTEM_CONFIG': {
+                        'subport': 91,
+                        'inoutInfo': {
+                            'args': None, #TODO: finish args
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    #TODO: finish return values
+                    'ADCS_GET_SYSTEM_CONFIG': {
+                        'subport': 92,
+                        'inoutInfo': {
+                            'args': None, 
+                            'returns': {
+                                'err': '>b'
+                                # adcs_sysConfig type
+                            }
+                        }
+                    },
+                    'ADCS_SET_MTQ_CONFIG': {
+                        'subport': 93,
+                        'inoutInfo': {
+                            'args': ['>u1', '>u1', '>u1'],
+                            'returns': {
+                                'err': '>b'
+                            }
+                        }
+                    },
+                    'ADCS_SET_RW_CONFIG': {
+                        'subport': 94,
+                        'inoutInfo': {
+                            'args': ['>u1'],
+                            'returns': {
+                                'err': '>b',
+                                'RW': '>u1'
+                            }
+                        }
+                    },
+                    'ADCS_SET_RATE_GYRO': {
+                        'subport': 95,
+                        'inoutInfo': {
+                            'args': ['>u1', '>u1', '>u1', '>f1', '>f1', '>f1', '>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_CSS_CONFIG': {
+                        'subport': 96,
+                        'inoutInfo': {
+                            'args': None, #TODO: array?
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_STAR_TRACK_CONFIG': {
+                        'subport': 97,
+                        'inoutInfo': {
+                            'args': ['>f1', '>f1', '>f1', '>u2', '>u2', '>u1', '>u1', '>u1', '>u2', '>u1', '>u1', '>u1', '>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>u1', '>u1', '>u1', '>?', '>?', '>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_CUBESENSE_CONFIG': {
+                        'subport': 98,
+                        'inoutInfo': {
+                            'args': None, #TODO: finish args, why does this have so many args ~.~
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_MTM_CONFIG': {
+                        'subport': 99,
+                        'inoutInfo': {
+                            'args': None, #TODO: finish args
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_DETUMBLE_CONFIG': {
+                        'subport': 100,
+                        'inoutInfo': {
+                            'args': ['>f1', '>f1', '>f1', '>f1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_YWHEEL_CONFIG': {
+                        'subport': 101,
+                        'inoutInfo': {
+                            'args': ['>f1', '>f1', '>f1', '>f1', '>f1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_TRACKING_CONFIG': {
+                        'subport': 102,
+                        'inoutInfo': {
+                            'args': ['>f1', '>f1', '>f1', '>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_MOI_MAT': {
+                        'subport': 103,
+                        'inoutInfo': {
+                            'args': ['>f1', '>f1', '>f1', '>f1', '>f1', '>f1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_ESTIMATION_CONFIG': {
+                        'subport': 104,
+                        'inoutInfo': {
+                            'args': ['>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>u1', '>u1', '>u1', '>u1'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_USERCODED_SETTING': {
+                        'subport': 105,
+                        'inoutInfo': {
+                            'args': ['>O', '>O'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_SET_ASGP4_SETTING': {
+                        'subport': 106,
+                        'inoutInfo': {
+                            'args': ['>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>u1', '>f1', '>f1', '>u1', '>f1', '>f1', '>u1', '>f1', '>f1', '>u2'],
+                            'returns': {
+                                'err': '>b',
+                            }
+                        }
+                    },
+                    'ADCS_GET_FULL_CONFIG': {
+                        'subport': 107,
+                        'inoutInfo': {
+                            'args': None,
+                            'returns': {
+                                'err': '>b',
+                                'ADCS_config': '>O'
+                            }
+                        }
+                    },
+                }
             }
         }
