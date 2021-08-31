@@ -2258,146 +2258,292 @@ class SystemValues(object):
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_SAT_POS_LLH': {
                         'subport': 66,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # xyz type
+                                'X': '>f4',
+                                'Y': '>f4',
+                                'Z': '>f4',
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_EXECUTION_TIMES': {
                         'subport': 67,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # ADCS_execution_times type
+                                'Adcs_Update': '>u2',
+                                'Sensor_Comm': '>u2',
+                                'Sgp4_propag': '>u2',
+                                'Igrf_model': '>u2'
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_ACP_LOOP_STAT': {
                         'subport': 68,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # ADCS_ACP_loop_stat type
+                                'Time': '>u2',
+                                'Execution_point': '>u1'
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_IMG_SAVE_PROGRESS': {
                         'subport': 69,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # ADCS_img_save_progress type
+                                'Percentage': '>u1',
+                                'Status': '>u1'
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_MEASUREMENTS': {
                         'subport': 70,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # adcs_measures type
+                                'Magnetic_field_X': 'f4',
+                                'Magnetic_field_Y': 'f4',
+                                'Magnetic_field_Z': 'f4',
+                                'Coarse_Sun_X': 'f4',
+                                'Coarse_Sun_Y': 'f4',
+                                'Coarse_Sun_Z': 'f4',
+                                'Sun_X': 'f4',
+                                'Sun_Y': 'f4',
+                                'Sun_Z': 'f4',
+                                'Nadir_X': 'f4',
+                                'Nadir_Y': 'f4',
+                                'Nadir_Z': 'f4',
+                                'Angular_Rate_X': 'f4',
+                                'Angular_Rate_Y': 'f4',
+                                'Angular_Rate_Z': 'f4',
+                                'Wheel_Speed_X': 'f4',
+                                'Wheel_Speed_Y': 'f4',
+                                'Wheel_Speed_Z': 'f4',
+                                'Star1b_X': 'f4',
+                                'Star1b_Y': 'f4',
+                                'Star1b_Z': 'f4',
+                                'Star1o_X': 'f4',
+                                'Star1o_Y': 'f4',
+                                'Star1o_Z': 'f4',
+                                'Star2b_X': 'f4',
+                                'Star2b_Y': 'f4',
+                                'Star2b_Z': 'f4',
+                                'Star2o_X': 'f4',
+                                'Star2o_Y': 'f4',
+                                'Star2o_Z': 'f4',
+                                'Star3b_X': 'f4',
+                                'Star3b_Y': 'f4',
+                                'Star3b_Z': 'f4',
+                                'Star3o_X': 'f4',
+                                'Star3o_Y': 'f4',
+                                'Star3o_Z': 'f4',
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_ACTUATOR': {
                         'subport': 71,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # adcs_actuator type
+                                'Magnetorquer_X': '>f4',
+                                'Magnetorquer_Y': '>f4',
+                                'Magnetorquer_Z': '>f4',
+                                'Wheel_Speed_X': '>f4',
+                                'Wheel_Speed_Y': '>f4',
+                                'Wheel_Speed_Z': '>f4',
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_ESTIMATION': {
                         'subport': 72,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # adcs_estimate type
+                                'Igrf_magnetic_field_X': 'f4',
+                                'Igrf_magnetic_field_Y': 'f4',
+                                'Igrf_magnetic_field_Z': 'f4',
+                                'Sun_X': 'f4',
+                                'Sun_Y': 'f4',
+                                'Sun_Z': 'f4',
+                                'Gyro_bias_X': 'f4',
+                                'Gyro_bias_Y': 'f4',
+                                'Gyro_bias_Z': 'f4',
+                                'Innovation_X': 'f4',
+                                'Innovation_Y': 'f4',
+                                'Innovation_Z': 'f4',
+                                'Quaternion_Err_X': 'f4',
+                                'Quaternion_Err_Y': 'f4',
+                                'Quaternion_Err_Z': 'f4',
+                                'Quaternion_Covar_X': 'f4',
+                                'Quaternion_Covar_X': 'f4',
+                                'Quaternion_Covar_X': 'f4',
+                                'Angular_Rate_Covar_X': 'f4',
+                                'Angular_Rate_Covar_Y': 'f4',
+                                'Angular_Rate_Covar_Z': 'f4',
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_ASGP4': {
                         'subport': 73,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # adcs_asgp4 type
+                                'Epoch': 'f4',
+                                'Inclination': 'f4',
+                                'RAAN': 'f4',
+                                'ECC': 'f4',
+                                'AOP': 'f4',
+                                'MA': 'f4',
+                                'MM': 'f4',
+                                'Bstar': 'f4',
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_RAW_SENSOR': {
                         'subport': 74,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # adcs_raw_sensor type
+                                'Cam1_Centroid_X': '>i2',
+                                'Cam1_Centroid_Y': '>i2',
+                                'Cam1_Capture_Stat': '>u1',
+                                'Cam1_Detect_Result': '>u1',
+                                'Cam2_Centroid_X': '>i2',
+                                'Cam2_Centroid_Y': '>i2',
+                                'Cam2_Capture_Stat': '>u1',
+                                'Cam2_Detect_Result': '>u1',
+                                'Css': '>O20',
+                                'MTM_X': 'f8',
+                                'MTM_Y': 'f8',
+                                'MTM_Z': 'f8',
+                                'Rate_X': 'f8',
+                                'Rate_Y': 'f8',
+                                'Rate_Z': 'f8',
+
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_RAW_GPS': {
                         'subport': 75,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # adcs_raw_gps type
+                                'Sol_Stat': '>u1',
+                                'Tracked_Sats': '>u1',
+                                'UsedInSol_Sats': '>u1',
+                                'Xyz_Lof_Count': '>u1',
+                                'Range_Log_Count': '>u1',
+                                'Response_Msg': '>u1',
+                                'Reference_Week': '>u2',
+                                'Time': '>u4',
+                                'X_Pos': '>i4',
+                                'X_Vel': '>i2',
+                                'Y_Pos': '>i4',
+                                'Y_Vel': '>i2',
+                                'Z_Pos': '>i4',
+                                'Z_Vel': '>i2',
+                                'Pos_Std_Dev_X': '>f4',
+                                'Pos_Std_Dev_Y': '>f4',
+                                'Pos_Std_Dev_Z': '>f4',
+                                'Vel_Std_Dev_X': '>u1',
+                                'Vel_Std_Dev_Y': '>u1',
+                                'Vel_Std_Dev_Z': '>u1',
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_STAR_TRACKER': {
                         'subport': 76,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # adcs_star_track type
+                                'Detected_Stars': '>u1',
+                                'Img_noise': '>u1',
+                                'Invalid_stars': '>u1',
+                                'Identified_stars': '>u1',
+                                'Identification_mode': '>u1',
+                                'Img_dark_val': '>u1',
+                                'flags_arr': '>O20',
+                                'Sample_T': '>u2',
+                                'Star1_Confidence': '>u1',
+                                'Star1_magnitude': '>u2',
+                                'Star1_Catalouge_Num': '>u2',
+                                'Star1_Centroid_X': '>i2',
+                                'Star1_Centroid_Y': '>i2',
+                                'Star2_Confidence': '>u1',
+                                'Star2_magnitude': '>u2',
+                                'Star2_Catalouge_Num': '>u2',
+                                'Star2_Centroid_X': '>i2',
+                                'Star2_Centroid_Y': '>i2',
+                                'Star3_Confidence': '>u1',
+                                'Star3_magnitude': '>u2',
+                                'Star3_Catalouge_Num': '>u2',
+                                'Star3_Centroid_X': '>i2',
+                                'Star3_Centroid_Y': '>i2',
+                                'Capture_T': '>u2',
+                                'Detect_T': '>u2',
+                                'Identification_T': '>u2',
+                                'Estimated_Rate_X': '>f4',
+                                'Estimated_Rate_Y': '>f4',
+                                'Estimated_Rate_Z': '>f4',
+                                'Estimated_Att_X': '>f4',
+                                'Estimated_Att_Y': '>f4',
+                                'Estimated_Att_Z': '>f4',
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_MTM2_MEASUREMENTS': {
                         'subport': 77,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # xyz16 type
+                                'Mag_X': '>i2',
+                                'Mag_Y': '>i2',
+                                'Mag_Z': '>i2',
                             }
                         }
                     },
-                    #TODO: Finish the return values
                     'ADCS_GET_POWER_TEMP': {
                         'subport': 78,
                         'inoutInfo': {
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                # adcs_pwr_temp type
+                                'Cubesense1_3v3_I': '>f4',
+                                'Cubesense1_CamSram_I': '>f4',
+                                'Cubesense2_3v3_I': '>f4',
+                                'Cubesense2_CamSram_I': '>f4',
+                                'Cubecontrol_3v3_I': '>f4',
+                                'cubecontrol_5v_I': '>f4',
+                                'Cubecontrol_vBat_I': '>f4',
+                                'wheel1_I': '>f4',
+                                'wheel2_I': '>f4',
+                                'wheel3_I': '>f4',
+                                'Cubestar_I': '>f4',
+                                'Magnetorquer_I': '>f4',
+                                'Cubestar_Temp': '>f4',
+                                'MCU_temp': '>f4',
+                                'MTM_temp': '>f4',
+                                'MTM2_temp': '>f4',
+                                'Rate_Sensor_Temp_X': '>i2',
+                                'Rate_Sensor_Temp_Y': '>i2',
+                                'Rate_Sensor_Temp_Z': '>i2',
                             }
                         }
                     },
@@ -2424,7 +2570,7 @@ class SystemValues(object):
                     'ADCS_SET_ATTITUDE_ANGLE': {
                         'subport': 81,
                         'inoutInfo': {
-                            'args': ['>f1', '>f1', '>f1' ], # xyz type
+                            'args': ['>f4', '>f4', '>f4' ], # xyz type
                             'returns': {
                                 'err': '>b'
                             }
@@ -2436,16 +2582,16 @@ class SystemValues(object):
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                'X': '>f1',
-                                'Y': '>f1',
-                                'Z': '>f1'
+                                'X': '>f4',
+                                'Y': '>f4',
+                                'Z': '>f4'
                             }
                         }
                     },
                     'ADCS_SET_TRACK_CONTROLLER': {
                         'subport': 83,
                         'inoutInfo': {
-                            'args': ['>f1', '>f1', '>f1' ], # xyz type
+                            'args': ['>f4', '>f4', '>f4' ], # xyz type
                             'returns': {
                                 'err': '>b'
                             }
@@ -2457,16 +2603,16 @@ class SystemValues(object):
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                'X': '>f1',
-                                'Y': '>f1',
-                                'Z': '>f1'
+                                'X': '>f4',
+                                'Y': '>f4',
+                                'Z': '>f4'
                             }
                         }
                     },
                     'ADCS_SET_LOG_CONFIG': {
                         'subport': 85,
                         'inoutInfo': {
-                            'args': ['>O', '>u2'], # array type?, period
+                            'args': ['>O20', '>u2'], # array type?, period
                             'returns': {
                                 'err': '>b'
                             }
@@ -2478,7 +2624,7 @@ class SystemValues(object):
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                #Array type? #TODO
+                                'Flag_arr': '>O20',
                                 'Period': '>u2',
                                 'Dest': '>u1',
                                 'Log': '>u1'
@@ -2488,7 +2634,7 @@ class SystemValues(object):
                     'ADCS_SET_INERTIAL_REF': {
                         'subport': 87,
                         'inoutInfo': {
-                            'args': ['>f1', '>f1', '>f1'],
+                            'args': ['>f4', '>f4', '>f4'],
                             'returns': {
                                 'err': '>b'
                             }
@@ -2500,16 +2646,16 @@ class SystemValues(object):
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                'X': '>f1',
-                                'Y': '>f1',
-                                'Z': '>f1'
+                                'X': '>f4',
+                                'Y': '>f4',
+                                'Z': '>f4'
                             }
                         }
                     },
                     'ADCS_SET_SGP4_ORBIT_PARAMS': {
                         'subport': 89,
                         'inoutInfo': {
-                            'args': ['>f2', '>f2', '>f2', '>f2', '>f2', '>f2', '>f2', '>f2'],
+                            'args': ['>f8', '>f8', '>f8', '>f8', '>f8', '>f8', '>f8', '>f8'],
                             'returns': {
                                 'err': '>b'
                             }
@@ -2521,14 +2667,14 @@ class SystemValues(object):
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                'Inclination': '>f2',
-                                'ECC': '>f2',
-                                'RAAN': '>f2',
-                                'AOP': '>f2',
-                                'Bstar': '>f2',
-                                'MM': '>f2',
-                                'MA': '>f2',
-                                'Epoch': '>f2'
+                                'Inclination': '>f8',
+                                'ECC': '>f8',
+                                'RAAN': '>f8',
+                                'AOP': '>f8',
+                                'Bstar': '>f8',
+                                'MM': '>f8',
+                                'MA': '>f8',
+                                'Epoch': '>f8'
                             }
                         }
                     },
@@ -2541,14 +2687,80 @@ class SystemValues(object):
                             }
                         }
                     },
-                    #TODO: finish return values
                     'ADCS_GET_SYSTEM_CONFIG': {
                         'subport': 92,
                         'inoutInfo': {
                             'args': None, 
                             'returns': {
-                                'err': '>b'
-                                # adcs_sysConfig type
+                                'err': '>b',
+                                'Acp_Type': '>u1',
+                                'Special_Ctrl_Sel': '>u1',
+                                'CC_sig_ver': '>u1',
+                                'CC_motor_ver': '>u1',
+                                'CS1_ver': '>u1',
+                                'CS2_ver': '>u1',
+                                'CS1_cam': '>u1',
+                                'CS2_cam': '>u1',
+                                'CubeStar_Ver': '>u1',
+                                'GPS': '>u1',
+                                'Include_MTM2': '>?',
+                                'MTQ_max_dipole_X': '>f4',
+                                'MTQ_max_dipole_Y': '>f4',
+                                'MTQ_max_dipole_Z': '>f4',
+                                'MTQ_ontime_res': '>f4',
+                                'MTQ_max_ontime': '>f4',
+                                'RW_max_torque_X': '>f4',
+                                'RW_max_torque_Y': '>f4',
+                                'RW_max_torque_Z': '>f4',
+                                'RW_max_moment_X': '>f4',
+                                'RW_max_moment_Y': '>f4',
+                                'RW_max_moment_Z': '>f4',
+                                'RW_inertia_X': '>f4',
+                                'RW_inertia_Y': '>f4',
+                                'RW_inertia_Z': '>f4',
+                                'RW_torque_inc': '>f4',
+                                'MTM1_bias_d1_X': '>f4',
+                                'MTM1_bias_d1_Y': '>f4',
+                                'MTM1_bias_d1_Z': '>f4',
+                                'MTM1_bias_d2_X': '>f4',
+                                'MTM1_bias_d2_Y': '>f4',
+                                'MTM1_bias_d2_Z': '>f4',
+                                'MTM1_sens_s1_X': '>f4',
+                                'MTM1_sens_s1_Y': '>f4',
+                                'MTM1_sens_s1_Z': '>f4',
+                                'MTM1_sens_s2_X': '>f4',
+                                'MTM1_sens_s2_Y': '>f4',
+                                'MTM1_sens_s2_Z': '>f4',
+                                'MTM2_bias_d1_X': '>f4',
+                                'MTM2_bias_d1_Y': '>f4',
+                                'MTM2_bias_d1_Z': '>f4',
+                                'MTM2_bias_d2_X': '>f4',
+                                'MTM2_bias_d2_Y': '>f4',
+                                'MTM2_bias_d2_Z': '>f4',
+                                'MTM2_sens_s1_X': '>f4',
+                                'MTM2_sens_s1_Y': '>f4',
+                                'MTM2_sens_s1_Z': '>f4',
+                                'MTM2_sens_s2_X': '>f4',
+                                'MTM2_sens_s2_Y': '>f4',
+                                'MTM2_sens_s2_Z': '>f4',
+                                'CC_Signal_Port': '>u1',
+                                'CC_Signal_Pin': '>u1',
+                                'CC_Motor_Port': '>u1',
+                                'CC_Motor_Pin': '>u1',
+                                'CC_Common_Port': '>u1',
+                                'CC_Common_Pin': '>u1',
+                                'CS1_Port': '>u1',
+                                'CS1_Pin': '>u1',
+                                'CS2_Port': '>u1',
+                                'CS2_Pin': '>u1',
+                                'CubeStar_Port': '>u1',
+                                'CubeStar_Pin': '>u1',
+                                'CW1_Port': '>u1',
+                                'CW1_Pin': '>u1',
+                                'CW2_Port': '>u1',
+                                'CW2_Pin': '>u1',
+                                'CW3_Port': '>u1',
+                                'CW3_Pin': '>u1',
                             }
                         }
                     },
@@ -2574,7 +2786,7 @@ class SystemValues(object):
                     'ADCS_SET_RATE_GYRO': {
                         'subport': 95,
                         'inoutInfo': {
-                            'args': ['>u1', '>u1', '>u1', '>f1', '>f1', '>f1', '>u1'],
+                            'args': ['>u1', '>u1', '>u1', '>f4', '>f4', '>f4', '>u1'],
                             'returns': {
                                 'err': '>b',
                             }
@@ -2583,7 +2795,7 @@ class SystemValues(object):
                     'ADCS_SET_CSS_CONFIG': {
                         'subport': 96,
                         'inoutInfo': {
-                            'args': None, #TODO: array?
+                            'args': ['>O20', '>O20', '>u1'],
                             'returns': {
                                 'err': '>b',
                             }
@@ -2592,7 +2804,7 @@ class SystemValues(object):
                     'ADCS_SET_STAR_TRACK_CONFIG': {
                         'subport': 97,
                         'inoutInfo': {
-                            'args': ['>f1', '>f1', '>f1', '>u2', '>u2', '>u1', '>u1', '>u1', '>u2', '>u1', '>u1', '>u1', '>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>u1', '>u1', '>u1', '>?', '>?', '>u1'],
+                            'args': ['>f4', '>f4', '>f4', '>u2', '>u2', '>u1', '>u1', '>u1', '>u2', '>u1', '>u1', '>u1', '>f4', '>f4', '>f4', '>f4', '>f4', '>f4', '>f4', '>u1', '>u1', '>u1', '>?', '>?', '>u1'],
                             'returns': {
                                 'err': '>b',
                             }
@@ -2610,7 +2822,7 @@ class SystemValues(object):
                     'ADCS_SET_MTM_CONFIG': {
                         'subport': 99,
                         'inoutInfo': {
-                            'args': None, #TODO: finish args
+                            'args': ['>f4', '>f4', '>f4', '>f4', '>f4', '>f4', '>O20'],
                             'returns': {
                                 'err': '>b',
                             }
@@ -2619,7 +2831,7 @@ class SystemValues(object):
                     'ADCS_SET_DETUMBLE_CONFIG': {
                         'subport': 100,
                         'inoutInfo': {
-                            'args': ['>f1', '>f1', '>f1', '>f1'],
+                            'args': ['>f4', '>f4', '>f4', '>f4'],
                             'returns': {
                                 'err': '>b',
                             }
@@ -2628,7 +2840,7 @@ class SystemValues(object):
                     'ADCS_SET_YWHEEL_CONFIG': {
                         'subport': 101,
                         'inoutInfo': {
-                            'args': ['>f1', '>f1', '>f1', '>f1', '>f1'],
+                            'args': ['>f4', '>f4', '>f4', '>f4', '>f4'],
                             'returns': {
                                 'err': '>b',
                             }
@@ -2637,7 +2849,7 @@ class SystemValues(object):
                     'ADCS_SET_TRACKING_CONFIG': {
                         'subport': 102,
                         'inoutInfo': {
-                            'args': ['>f1', '>f1', '>f1', '>u1'],
+                            'args': ['>f4', '>f4', '>f4', '>u1'],
                             'returns': {
                                 'err': '>b',
                             }
@@ -2646,7 +2858,7 @@ class SystemValues(object):
                     'ADCS_SET_MOI_MAT': {
                         'subport': 103,
                         'inoutInfo': {
-                            'args': ['>f1', '>f1', '>f1', '>f1', '>f1', '>f1'],
+                            'args': ['>f4', '>f4', '>f4', '>f4', '>f4', '>f4'],
                             'returns': {
                                 'err': '>b',
                             }
@@ -2655,7 +2867,7 @@ class SystemValues(object):
                     'ADCS_SET_ESTIMATION_CONFIG': {
                         'subport': 104,
                         'inoutInfo': {
-                            'args': ['>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>u1', '>u1', '>u1', '>u1'],
+                            'args': ['>f4', '>f4', '>f4', '>f4', '>f4', '>f4', '>f4', '>u1', '>u1', '>u1', '>u1'],
                             'returns': {
                                 'err': '>b',
                             }
@@ -2664,7 +2876,7 @@ class SystemValues(object):
                     'ADCS_SET_USERCODED_SETTING': {
                         'subport': 105,
                         'inoutInfo': {
-                            'args': ['>O', '>O'],
+                            'args': ['>O20', '>O20'],
                             'returns': {
                                 'err': '>b',
                             }
@@ -2673,7 +2885,7 @@ class SystemValues(object):
                     'ADCS_SET_ASGP4_SETTING': {
                         'subport': 106,
                         'inoutInfo': {
-                            'args': ['>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>f1', '>u1', '>f1', '>f1', '>u1', '>f1', '>f1', '>u1', '>f1', '>f1', '>u2'],
+                            'args': ['>f4', '>f4', '>f4', '>f4', '>f4', '>f4', '>f4', '>u1', '>f4', '>f4', '>u1', '>f4', '>f4', '>u1', '>f4', '>f4', '>u2'],
                             'returns': {
                                 'err': '>b',
                             }
@@ -2685,7 +2897,7 @@ class SystemValues(object):
                             'args': None,
                             'returns': {
                                 'err': '>b',
-                                'ADCS_config': '>O'
+                                'ADCS_config': '>O20'
                             }
                         }
                     },
